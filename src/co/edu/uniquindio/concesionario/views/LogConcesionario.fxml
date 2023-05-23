@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="co.edu.uniquindio.concesionario.controller.IngresoController">
+   <bottom>
+      <AnchorPane prefHeight="415.0" prefWidth="573.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnCambioContrasena" layoutX="44.0" layoutY="313.0" mnemonicParsing="false" onAction="#cambiarContrasenaEvent" text="Cambiar contraseña" />
+            <Button fx:id="btnIntgresar" layoutX="261.0" layoutY="236.0" mnemonicParsing="false" onAction="#ingresarEvent" text="Ingresar" />
+            <TextField fx:id="fieldContrasena" layoutX="213.0" layoutY="172.0" />
+            <TextField fx:id="fieldUsuario" layoutX="213.0" layoutY="91.0" />
+            <Label layoutX="266.0" layoutY="59.0" text="Usuario" />
+            <Label layoutX="257.0" layoutY="144.0" text="Contraseña" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

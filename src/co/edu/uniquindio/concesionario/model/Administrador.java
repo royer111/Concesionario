@@ -7,8 +7,8 @@ public class Administrador extends Empleado{
 
 
 
-    public Administrador(String nombre, String identificacion, String direccion, String numeroTelefonico) {
-		super(nombre, identificacion, direccion, numeroTelefonico);
+    public Administrador(String nombre, String identificacion, String direccion, String numeroTelefonico, String idAdministrador) {
+		super(nombre, identificacion, direccion, numeroTelefonico, idAdministrador);
 		this.idAdministrador = idAdministrador;
 	}
 

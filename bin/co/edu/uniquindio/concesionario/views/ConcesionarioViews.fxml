@@ -13,8 +13,8 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.concesionario.controller.ConcesionarioController">
-	<center>
-      <TabPane prefHeight="599.0" prefWidth="637.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+   <top>
+      <TabPane prefHeight="610.0" prefWidth="778.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
           <Tab text="Gestion Empleados">
             <content>
@@ -46,7 +46,7 @@
                         <Button fx:id="btnMostrar" layoutX="445.0" layoutY="211.0" mnemonicParsing="false" onAction="#agregarCuentaEvent" text="Agregar" />
                         <Button fx:id="btnActualizar" layoutX="275.0" layoutY="211.0" mnemonicParsing="false" onAction="#actualizarEvent" text="Actualizar" />
                         <Separator layoutX="10.0" layoutY="195.0" prefHeight="3.0" prefWidth="628.0" style="-fx-background-color: black;" />
-                        <Label layoutX="209.0" layoutY="262.0" text="Lista Cuentas">
+                        <Label layoutX="232.0" layoutY="262.0" text="Empleados">
                            <font>
                               <Font size="32.0" />
                            </font>
@@ -58,11 +58,66 @@
                            </font>
                         </Label>
                         <TextField fx:id="fieldIdentificacionEmpleado" layoutX="284.0" layoutY="159.0" prefHeight="25.0" prefWidth="275.0" />
+                        <Button fx:id="btnMenu" layoutX="32.0" layoutY="519.0" mnemonicParsing="false" onAction="#volverevent" text="Menu principal" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
+            <Tab text="Gestion Clientes">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField layoutX="69.0" layoutY="109.0" />
+                        <TextField layoutX="69.0" layoutY="185.0" />
+                        <TextField layoutX="381.0" layoutY="185.0" />
+                        <TextField layoutX="381.0" layoutY="109.0" />
+                        <Label layoutX="69.0" layoutY="76.0" text="Nombre" />
+                        <Label layoutX="381.0" layoutY="76.0" text="Identificacion" />
+                        <Label layoutX="68.0" layoutY="152.0" text="Telefono" />
+                        <Label layoutX="381.0" layoutY="152.0" text="Direccion " />
+                        <Label layoutX="218.0" layoutY="14.0" prefHeight="39.0" prefWidth="202.0" text="Registro clientes">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                        </Label>
+                        <TableView layoutX="67.0" layoutY="311.0" prefHeight="230.0" prefWidth="503.0">
+                          <columns>
+                            <TableColumn prefWidth="126.0" text="Nombre" />
+                            <TableColumn prefWidth="115.0" text="Telefono" />
+                              <TableColumn prefWidth="126.0" text="Direccion" />
+                              <TableColumn prefWidth="135.0" text="Identificacion" />
+                          </columns>
+                        </TableView>
+                        <TextField layoutX="218.0" layoutY="273.0" />
+                        <Button layoutX="394.0" layoutY="273.0" mnemonicParsing="false" text="Buscar por identificacion" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Gestion Vehiculos">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="180.0" layoutY="7.0" text="Registro de Vehiculos">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Label>
+                        <TableView layoutX="31.0" layoutY="368.0" prefHeight="188.0" prefWidth="734.0">
+                          <columns>
+                            <TableColumn prefWidth="126.0" text="Placa" />
+                            <TableColumn prefWidth="147.0" text="Marca" />
+                              <TableColumn prefWidth="149.0" text="Modelo" />
+                              <TableColumn prefWidth="157.0" text="Estado" />
+                          </columns>
+                        </TableView>
+                        <TextField layoutX="153.0" layoutY="334.0" />
+                        <Button layoutX="327.0" layoutY="334.0" mnemonicParsing="false" text="Buscar" />
+                        <Label layoutX="68.0" layoutY="338.0" text="Ingrese placa" />
+                        <Separator layoutX="14.0" layoutY="273.0" prefHeight="0.0" prefWidth="760.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
         </tabs>
       </TabPane>
-   </center>
+   </top>
 </BorderPane>

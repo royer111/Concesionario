@@ -1,6 +1,6 @@
 package co.edu.uniquindio.concesionario.model;
 
-public class Bus extends Automovil{
+public class Bus extends Vehiculo{
     private int numEjes;
     private int numSalidasEmergencia;
     private boolean tieneABS;
@@ -10,6 +10,7 @@ public class Bus extends Automovil{
 			TipoTransmision tipoTrasmision) {
 		super(marca, placa, modelo, cantidadCambios, velocidadMaxima, cilindraje, estadoVehiculo, tipoCombustible,
 				tipoTrasmision);
+
         this.numEjes = numEjes;
         this.numSalidasEmergencia = numSalidasEmergencia;
         this.tieneABS = tieneABS;

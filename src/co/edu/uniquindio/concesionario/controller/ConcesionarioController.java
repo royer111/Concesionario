@@ -2,6 +2,7 @@ package co.edu.uniquindio.concesionario.controller;
 
 import javax.swing.JOptionPane;
 
+
 import co.edu.uniquindio.concesionario.aplication.ConcesionarioAplicacion;
 import co.edu.uniquindio.concesionario.model.Empleado;
 import javafx.event.ActionEvent;
@@ -10,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class ConcesionarioController {
 
@@ -29,6 +31,9 @@ public class ConcesionarioController {
 
     @FXML
     private Button btnActualizar;
+    @FXML
+    private Button btnMenu;
+
 
     @FXML
     private TextField fieldNombreEmpleado;
@@ -53,6 +58,8 @@ public class ConcesionarioController {
     @FXML
     private TableView<Empleado> tableViews;
 
+
+
 /////////////////////////////////////////////////////////////////////////
 
 
@@ -72,6 +79,12 @@ public class ConcesionarioController {
     }
 
     @FXML
+    void volverevent(ActionEvent event) {
+    	ingresoController.show();
+    	this.stage.close();
+    }
+
+    @FXML
     void limpiarEvent(ActionEvent event) {
 
     }
@@ -79,12 +92,13 @@ public class ConcesionarioController {
 
 
 
-	private ConcesionarioAplicacion concesionarioAplicacion;
+    private IngresoController ingresoController;
+    private Stage stage;
 
-	public void setConcesionarioAplicacion(ConcesionarioAplicacion concesionarioAplicacion) {
-        this.concesionarioAplicacion = concesionarioAplicacion;
-        tableViews.getItems().clear();
-        //tableViews.setItems(getCuentas());
-		}
+	public void init(Stage primaryStage, IngresoController ingresoController) {
+		this.ingresoController = ingresoController;
+		this.stage = stage;
+
+	}
 
 }

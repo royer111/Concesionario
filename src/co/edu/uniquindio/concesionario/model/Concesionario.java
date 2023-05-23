@@ -10,7 +10,7 @@ public class Concesionario {
     private List<Transaccion> listaTransacciones= new ArrayList<>();
 
 
-    public Concesionario(List<Empleado> listaEmpleados, List<Cliente> listaClientes, List<Vehiculo> listaVehiculos) {
+    public Concesionario(List<Empleado> listaEmpleados, List<Cliente> listaClientes, List<Vehiculo> listaVehiculos, List<Transaccion> listaTransacciones) {
         this.listaEmpleados = listaEmpleados;
         this.listaClientes = listaClientes;
         this.listaVehiculos = listaVehiculos;
@@ -41,10 +41,22 @@ public class Concesionario {
         this.listaVehiculos = listaVehiculos;
     }
 
+    public List<Transaccion> getListaTransacciones() {
+		return listaTransacciones;
+	}
+
+	public void setListaTransacciones(List<Transaccion> listaTransacciones) {
+		this.listaTransacciones = listaTransacciones;
+	}
+
+
+
     ////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////
 
-    public Empleado CrearEmpleado (String nombre, String identificacion, String direccion, String numeroTelefonico, String idEmpleado){
+
+
+	public Empleado CrearEmpleado (String nombre, String identificacion, String direccion, String numeroTelefonico, String idEmpleado){
     	Empleado empleado = new Empleado (nombre, identificacion, direccion, numeroTelefonico, idEmpleado);
     	empleado.setNombre(nombre);
     	empleado.setDireccion(direccion);
@@ -147,9 +159,27 @@ public class Concesionario {
     public Automovil crearAutomovil (String marca, String placa, String modelo, int cantidadCambios, double velocidadMaxima,
 			String cilindraje, EstadoVehiculo estadoVehiculo, TipoCombustible tipoCombustible,
 			TipoTransmision tipoTrasmision, int numPuertas, int numPasajeros, int numBolsasAire){
-    	Automovil vehiculo =  new Automovil (marca, placa, modelo, cantidadCambios, velocidadMaxima, cilindraje, estadoVehiculo, tipoCombustible, tipoTrasmision, numPuertas, numPasajeros, numBolsasAire);
-    	return vehiculo;
+    	Automovil automovil =  new Automovil (marca, placa, modelo, cantidadCambios, velocidadMaxima, cilindraje, estadoVehiculo, tipoCombustible, tipoTrasmision, numPuertas, numPasajeros, numBolsasAire);
+    	return automovil;
 
+    }
+
+    public void actualizarAutomovil (String placa, int cantidadCambios, double velocidadMaxima,
+		 EstadoVehiculo estadoVehiculo, TipoCombustible tipoCombustible,
+		TipoTransmision tipoTrasmision){
+    		for (Vehiculo vehiculo : listaVehiculos) {
+				if(buscarVehiculo(placa) != null){
+					vehiculo.setCantidadCambios(cantidadCambios);
+					vehiculo.setEstadoVehiculo(estadoVehiculo);
+					vehiculo.setVelocidadMaxima(velocidadMaxima);
+					vehiculo.setTipoCombustible(tipoCombustible);
+					vehiculo.setTipoTrasmision(tipoTrasmision);
+
+				}
+				else{
+
+				}
+			}
     }
 
 
