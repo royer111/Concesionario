@@ -36,30 +36,26 @@ public class IngresoController {
     @FXML
     void ingresarEvent(ActionEvent event) {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/concesionario/views/ConcesionarioViews.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/concesionario/views/MenuPrincipal.fxml"));
 			Parent root = loader.load();
-	        ConcesionarioController concesionarioController = loader.getController();
+	        MenuPrincipalController menuController = loader.getController();
 	        Scene scene = new Scene(root);
-			Stage primaryStage = new Stage();
-	        primaryStage.setScene(scene);
-	        concesionarioController.init(primaryStage, this);
-	        primaryStage.show();
+	        Stage stage = new Stage();
+	        stage.setScene(scene);
+	        menuController.init(stage, this);
+	        stage.show();
 	        this.stage.close();
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
     }
 
-	public void setConcesionarioAplicacion(ConcesionarioAplicacion concesionarioAplicacion) {
-		this.concesionarioAplicacion = concesionarioAplicacion;
-
-
+	public void show() {
+		this.stage.show();
 	}
 
-	public void show() {
-		stage.show();
-
+	public void setStage(Stage primaryStage) {
+		this.stage = primaryStage;
 	}
 
 }

@@ -13,46 +13,24 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
 public class ConcesionarioAplicacion extends Application {
-	Stage primaryStage;
+
 	@Override
 	public void start(Stage primaryStage)   {
-		this.primaryStage = primaryStage;
-		mostrarVentanaPrincial();
-	}
-
-	private void mostrarVentanaPrincial()   {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/concesionario/views/LogConcesionario.fxml"));
 			Parent root = loader.load();
 	        Scene scene = new Scene(root);
-			IngresoController loginController = loader.getController();
-	        loginController.setConcesionarioAplicacion(this);
 	        primaryStage.setScene(scene);
+			IngresoController loginController = loader.getController();
+	        loginController.setStage(primaryStage);
 	        primaryStage.show();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-
 	}
 
-
-
-	public Stage getPrimaryStage() {
-		return primaryStage;
-	}
-
-	public void setPrimaryStage(Stage primaryStage) {
-		this.primaryStage = primaryStage;
-	}
-
-
-	public static void main(String[] args)  {
+	public static void main (String args[])   {
 		launch(args);
-
-}
-
-
-
+	}
 }

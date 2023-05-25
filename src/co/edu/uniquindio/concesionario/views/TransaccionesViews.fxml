@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="co.edu.uniquindio.concesionario.controller.TransaccionesController">
+   <center>
+      <AnchorPane prefHeight="460.0" prefWidth="427.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnMenuPrincipal" layoutX="181.0" layoutY="266.0" mnemonicParsing="false" onAction="#menuPrincipalEvent" text="Menu principal" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

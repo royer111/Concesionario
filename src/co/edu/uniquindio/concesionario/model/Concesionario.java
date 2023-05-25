@@ -8,16 +8,27 @@ public class Concesionario {
     private List<Cliente> listaClientes= new ArrayList<>();
     private List<Vehiculo> listaVehiculos= new ArrayList<>();
     private List<Transaccion> listaTransacciones= new ArrayList<>();
+    private String nombre ;
 
-
-    public Concesionario(List<Empleado> listaEmpleados, List<Cliente> listaClientes, List<Vehiculo> listaVehiculos, List<Transaccion> listaTransacciones) {
-        this.listaEmpleados = listaEmpleados;
-        this.listaClientes = listaClientes;
-        this.listaVehiculos = listaVehiculos;
-        this.listaTransacciones = listaTransacciones;
+    public Concesionario(String nombre) {
+    	this.nombre = nombre;
     }
 
-    public List<Empleado> getListaEmpleados() {
+
+
+    public String getNombre() {
+		return nombre;
+	}
+
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+
+	public List<Empleado> getListaEmpleados() {
         return listaEmpleados;
     }
 
@@ -56,12 +67,10 @@ public class Concesionario {
 
 
 
-	public Empleado CrearEmpleado (String nombre, String identificacion, String direccion, String numeroTelefonico, String idEmpleado){
-    	Empleado empleado = new Empleado (nombre, identificacion, direccion, numeroTelefonico, idEmpleado);
+	public Empleado CrearEmpleado (String nombre, String identificacion, String idEmpleado){
+    	Empleado empleado = new Empleado (nombre, identificacion, idEmpleado);
     	empleado.setNombre(nombre);
-    	empleado.setDireccion(direccion);
     	empleado.setIdentificacion(identificacion);
-    	empleado.setNumeroTelefonico(numeroTelefonico);
     	empleado.setIdEmpleado(idEmpleado);
     	listaEmpleados.add(empleado);
     	return empleado;
@@ -76,12 +85,10 @@ public class Concesionario {
     	return null;
     }
 
-    public void actualizarEmpleado (String nombre, String direccion, String numeroTelefonico, String idEmpleado){
+    public void actualizarEmpleado (String nombre, String idEmpleado){
     	for (Empleado empleado : listaEmpleados) {
 			if(buscarEmpleado(idEmpleado) != null){
-				empleado.setDireccion(empleado.getDireccion());
-				empleado.setNombre(empleado.getNombre());
-				empleado.setNumeroTelefonico(empleado.getNumeroTelefonico());
+				empleado.setNombre(nombre);
 			}
 		}
     }
@@ -123,9 +130,9 @@ public class Concesionario {
     public void actualizarCliente (String nombre, String direccion, String numeroTelefonico, String identificacion){
     	for (Cliente cliente : listaClientes) {
 			if(buscarCliente(identificacion) != null){
-				cliente.setDireccion(cliente.getDireccion());
-				cliente.setNombre(cliente.getNombre());
-				cliente.setNumeroTelefonico(cliente.getNumeroTelefonico());
+				cliente.setDireccion(direccion);
+				cliente.setNombre(nombre);
+				cliente.setNumeroTelefonico(numeroTelefonico);
 			}
 		}
     }
@@ -181,6 +188,8 @@ public class Concesionario {
 				}
 			}
     }
+
+
 
 
 }
