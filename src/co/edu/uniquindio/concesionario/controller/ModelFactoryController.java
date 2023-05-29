@@ -2,6 +2,7 @@ package co.edu.uniquindio.concesionario.controller;
 
 import java.util.List;
 
+import co.edu.uniquindio.concesionario.model.Cliente;
 import co.edu.uniquindio.concesionario.model.Concesionario;
 import co.edu.uniquindio.concesionario.model.Empleado;
 
@@ -70,31 +71,17 @@ public class ModelFactoryController {
 
 	}
 
-	public ClienteJuridico crearClienteJuridico (String nit, String nombre, String telefono, String tipoEmpresa){
-		ClienteJuridico cliente = (empresa.agregarClienteJuridico(nit, nombre, telefono, tipoEmpresa));
-		return cliente;
-	}
-
-
-	public boolean eliminarClienteJuridico (String nit) {
-		boolean eliminado = empresa.eliminarClienteJuridico(nit);
-		return eliminado;
-	}
-
-	public void actualizarClienteJuridico (String nit, String nombre, String telefono, String tipoEmpresa) {
-		empresa.actualizarClienteJuridico(nit, nombre, telefono, tipoEmpresa);
-
-	}
-
-
-	public Factura crearFactura (String codigoFactura, String fechaFacturacion, float totalPagar , String nombre){
-		Factura factura = (empresa.agregarFactura( codigoFactura, fechaFacturacion, totalPagar, nombre));
-		return factura;
-	}
 
 
 	public List<Empleado> obtenerEmpleados() {
 		return concesionario.getListaEmpleados();
 	}
+
+	public Cliente crearClietne(String nombreCliente, String identificacion, String direccion, String numTelefonico) {
+		Cliente cliente = (concesionario.CrearCliente(nombreCliente, identificacion, direccion, numTelefonico));
+		return cliente;
+	}
+
+
 
 }

@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 
 import co.edu.uniquindio.concesionario.aplication.ConcesionarioAplicacion;
+import co.edu.uniquindio.concesionario.model.Cliente;
 import co.edu.uniquindio.concesionario.model.Empleado;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -37,6 +38,10 @@ public class ConcesionarioController implements Initializable{
 		this.columnaNombreEmpleado.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 		this.columnaCodigoEmpleado.setCellValueFactory(new PropertyValueFactory<>("idEmpleado"));
 		this.columnaIdentificacionEmpleado.setCellValueFactory(new PropertyValueFactory<>("identificacion"));
+		this.columnaNombreCliente.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+		this.columnaDireccionCliente.setCellValueFactory(new PropertyValueFactory<>("direccion"));
+		this.columnaIdentificacionCliente.setCellValueFactory(new PropertyValueFactory<>("identificacion"));
+		this.columnaTelefonoCliente.setCellValueFactory(new PropertyValueFactory<>("numeroTelefonico"));
 
 
 
@@ -163,8 +168,7 @@ public class ConcesionarioController implements Initializable{
 
 
 
-/////////////////////////////////////////////////////////////////////////
-
+   /////////////////////////////////////////////////////////////////////////////////////
     /**
      * funciones encargadas de la gestion de empleados
      * @param event
@@ -180,9 +184,8 @@ public class ConcesionarioController implements Initializable{
     private void actualizarEmpleadoAction(){
     	String nombreEmpleado = fieldNombreEmpleado.getText();
     	String idEmpleado = fieldCodigoEmpleado.getText();
-    	String identificacion = fieldIdentificacionEmpleado.getText();
        	if(empleadoSeleccionado != null){
-	    	if(datosValidados(nombreEmpleado, "aa", "aa", "AA")){
+	    	if(datosValidados(nombreEmpleado, "aa", "a", "AA")){
 	    		mfm.actualizarEmpleado(nombreEmpleado, idEmpleado);
 	    		empleadoSeleccionado.setNombre(nombreEmpleado);
 	    		tableViewsEmpleado.refresh();
@@ -257,8 +260,103 @@ public class ConcesionarioController implements Initializable{
 
 
 
+///////////////////////////////////////////////////////////////////////////
+    /**
+     * Variables usadas en el tab pane gestion clientes
+     *
+     */
+
+    @FXML
+    private Button btnAgregarCliente;
+
+    @FXML
+    private Button btnBuscarCliente;
 
 
+    @FXML
+    private Button btnEliminarCliente;
+
+
+    @FXML
+    private TableColumn<Cliente, String> columnaDireccionCliente;
+
+    @FXML
+    private TableColumn<Cliente, String> columnaIdentificacionCliente;
+
+
+    @FXML
+    private TableColumn<Cliente, String> columnaNombreCliente;
+
+
+    @FXML
+    private TableColumn<Cliente, String> columnaTelefonoCliente;
+
+    @FXML
+    private TextField fieldBuscarCliente;
+
+    @FXML
+    private TextField fieldDireccionCliente;
+
+    @FXML
+    private TextField fieldIdentificacionCliente;
+
+
+    @FXML
+    private TextField fieldNombreCliente;
+
+    @FXML
+    private TextField fieldTelefonoCliente;
+
+    @FXML
+    private TableView<Cliente> tableViewsCliente;
+
+	ObservableList <Cliente> listadoClientes= FXCollections.observableArrayList();
+
+    @FXML
+    void agregarClienteEvent(ActionEvent event) {
+    	String nombreCliente = fieldNombreCliente.getText();
+    	String direccion = fieldDireccionCliente.getText();
+    	String identificacion = fieldIdentificacionCliente.getText();
+    	String numTelefonico = fieldTelefonoCliente.getText();
+    	if(datosValidados(nombreCliente, direccion, identificacion, numTelefonico)){
+            crearCliente(nombreCliente, identificacion, direccion, numTelefonico);
+            tableViewsCliente.setItems(listadoClientes);
+            fieldNombreCliente.setText("");
+            fieldIdentificacionCliente.setText("");
+            fieldTelefonoCliente.setText("");
+            fieldDireccionCliente.setText("");
+
+    	}
+    	else {
+    		mostrarMensajeAlerta("Datos invalidos", "Datos insuficientes", "La cuenta no se puede crear debido a una insuficiencia en los datos ", AlertType.WARNING);
+    	}
+    }
+
+
+    private void crearCliente (String nombreCliente, String identificacion, String direccion, String numTelefonico){
+    	Cliente cliente = mfm.crearClietne(nombreCliente, identificacion, direccion, numTelefonico);
+    	if(cliente != null){
+    		listadoClientes.add(cliente);
+    		mostrarMensajeAlerta("Notificacion ", "Registro exitoso", "El cliente: " + identificacion +" ha sido registrada" , AlertType.INFORMATION);
+    	}
+    	else{
+    		mostrarMensajeAlerta("Notificacion ", "Registro invalido", "El cliente: " + identificacion  + "  No ha sido registrada", AlertType.WARNING);
+
+    	}
+    }
+
+
+    @FXML
+    void buscarClienteEvent(ActionEvent event) {
+
+    }
+
+    @FXML
+    void eliminarClienteEvent(ActionEvent event) {
+
+    }
+
+///////////////////////////////////////////////////////////////////
     private MenuPrincipalController menuPrincipalController;
     private Stage stage;
 

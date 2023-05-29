@@ -20,6 +20,9 @@ public class IngresoController {
     private Button btnIntgresar;
 
     @FXML
+    private Button btnCrearAdministrativo;
+
+    @FXML
     private TextField fieldContrasena;
 
     @FXML
@@ -30,6 +33,11 @@ public class IngresoController {
 	private Stage stage;
     @FXML
     void cambiarContrasenaEvent(ActionEvent event) {
+
+    }
+
+    @FXML
+    void crearAdministrativoEvent(ActionEvent event) {
 
     }
 

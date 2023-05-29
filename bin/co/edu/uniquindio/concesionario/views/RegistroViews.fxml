@@ -66,10 +66,10 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField layoutX="69.0" layoutY="109.0" />
-                        <TextField layoutX="69.0" layoutY="185.0" />
-                        <TextField layoutX="381.0" layoutY="185.0" />
-                        <TextField layoutX="381.0" layoutY="109.0" />
+                        <TextField fx:id="fieldNombreCliente" layoutX="69.0" layoutY="109.0" />
+                        <TextField fx:id="fieldTelefonoCliente" layoutX="69.0" layoutY="185.0" />
+                        <TextField fx:id="fieldDireccionCliente" layoutX="381.0" layoutY="185.0" />
+                        <TextField fx:id="fieldIdentificacionCliente" layoutX="381.0" layoutY="109.0" />
                         <Label layoutX="69.0" layoutY="76.0" text="Nombre" />
                         <Label layoutX="381.0" layoutY="76.0" text="Identificacion" />
                         <Label layoutX="68.0" layoutY="152.0" text="Telefono" />
@@ -79,16 +79,18 @@
                               <Font size="27.0" />
                            </font>
                         </Label>
-                        <TableView layoutX="67.0" layoutY="311.0" prefHeight="230.0" prefWidth="503.0">
+                        <TableView fx:id="tableViewsCliente" layoutX="67.0" layoutY="311.0" prefHeight="230.0" prefWidth="503.0">
                           <columns>
-                            <TableColumn prefWidth="126.0" text="Nombre" />
-                            <TableColumn prefWidth="115.0" text="Telefono" />
-                              <TableColumn prefWidth="126.0" text="Direccion" />
-                              <TableColumn prefWidth="135.0" text="Identificacion" />
+                            <TableColumn fx:id="columnaNombreCliente" prefWidth="126.0" text="Nombre" />
+                            <TableColumn fx:id="columnaTelefonoCliente" prefWidth="115.0" text="Telefono" />
+                              <TableColumn fx:id="columnaDireccionCliente" prefWidth="126.0" text="Direccion" />
+                              <TableColumn fx:id="columnaIdentificacionCliente" prefWidth="135.0" text="Identificacion" />
                           </columns>
                         </TableView>
-                        <TextField layoutX="218.0" layoutY="273.0" />
-                        <Button layoutX="394.0" layoutY="273.0" mnemonicParsing="false" text="Buscar por identificacion" />
+                        <TextField fx:id="fieldBuscarCliente" layoutX="218.0" layoutY="273.0" />
+                        <Button fx:id="btnBuscarCliente" layoutX="394.0" layoutY="273.0" mnemonicParsing="false" onAction="#buscarClienteEvent" text="Buscar por identificacion" />
+                        <Button fx:id="btnAgregarCliente" layoutX="596.0" layoutY="426.0" mnemonicParsing="false" onAction="#agregarClienteEvent" text="Agregar" />
+                        <Button fx:id="btnEliminarCliente" layoutX="596.0" layoutY="475.0" mnemonicParsing="false" onAction="#eliminarClienteEvent" text="Eliminar" />
                      </children></AnchorPane>
               </content>
             </Tab>
