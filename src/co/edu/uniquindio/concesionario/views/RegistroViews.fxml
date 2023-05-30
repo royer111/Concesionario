@@ -14,7 +14,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.concesionario.controller.ConcesionarioController">
    <top>
-      <TabPane prefHeight="610.0" prefWidth="778.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+      <TabPane prefHeight="611.0" prefWidth="779.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
           <Tab text="Gestion Empleados">
             <content>
@@ -91,30 +91,6 @@
                         <Button fx:id="btnBuscarCliente" layoutX="394.0" layoutY="273.0" mnemonicParsing="false" onAction="#buscarClienteEvent" text="Buscar por identificacion" />
                         <Button fx:id="btnAgregarCliente" layoutX="596.0" layoutY="426.0" mnemonicParsing="false" onAction="#agregarClienteEvent" text="Agregar" />
                         <Button fx:id="btnEliminarCliente" layoutX="596.0" layoutY="475.0" mnemonicParsing="false" onAction="#eliminarClienteEvent" text="Eliminar" />
-                     </children></AnchorPane>
-              </content>
-            </Tab>
-            <Tab text="Gestion Vehiculos">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Label layoutX="251.0" layoutY="-7.0" text="Registro de Vehiculos">
-                           <font>
-                              <Font size="29.0" />
-                           </font>
-                        </Label>
-                        <TableView layoutX="31.0" layoutY="368.0" prefHeight="188.0" prefWidth="734.0">
-                          <columns>
-                            <TableColumn prefWidth="172.0" text="Placa" />
-                            <TableColumn prefWidth="168.0" text="Marca" />
-                              <TableColumn prefWidth="175.0" text="Modelo" />
-                              <TableColumn prefWidth="218.0" text="Estado" />
-                          </columns>
-                        </TableView>
-                        <TextField layoutX="113.0" layoutY="334.0" />
-                        <Button layoutX="277.0" layoutY="334.0" mnemonicParsing="false" text="Buscar" />
-                        <Label layoutX="31.0" layoutY="338.0" text="Ingrese placa" />
-                        <Separator layoutX="14.0" layoutY="273.0" prefHeight="0.0" prefWidth="760.0" />
                      </children></AnchorPane>
               </content>
             </Tab>

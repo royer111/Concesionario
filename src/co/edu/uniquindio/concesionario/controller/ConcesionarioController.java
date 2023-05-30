@@ -1,6 +1,8 @@
 package co.edu.uniquindio.concesionario.controller;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
@@ -17,6 +19,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -33,6 +36,8 @@ public class ConcesionarioController implements Initializable{
 	 */
 	ModelFactoryController mfm = ModelFactoryController.getInstance();
 	private Empleado empleadoSeleccionado;
+	private Cliente clienteSeleccionado;
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		this.columnaNombreEmpleado.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -46,7 +51,6 @@ public class ConcesionarioController implements Initializable{
 
 
 
-
 		tableViewsEmpleado.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) ->{
 			if(newSelection!= null){
 				empleadoSeleccionado = (Empleado) newSelection;
@@ -54,6 +58,12 @@ public class ConcesionarioController implements Initializable{
 			}
 		});
 
+		tableViewsCliente.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) ->{
+			if(newSelection!= null){
+				clienteSeleccionado = (Cliente) newSelection;
+				mostrarDatosField ();
+			}
+		});
 
 		}
 
@@ -346,17 +356,44 @@ public class ConcesionarioController implements Initializable{
     }
 
 
+
+	ObservableList <Cliente> listadoClientesBuscados = FXCollections.observableArrayList();
     @FXML
     void buscarClienteEvent(ActionEvent event) {
+  	      String cedula = fieldBuscarCliente.getText();
+  	      Cliente cliente = mfm.buscarCedula(cedula);
+  	      if(cliente != null){
+  	    	  listadoClientesBuscados.clear();
+  	    	  listadoClientesBuscados.add(cliente);
+  	    	  JOptionPane.showMessageDialog(null, "Cliente encontrado");
+  	    	  tableViewsCliente.setItems(listadoClientesBuscados);
+  	    	  tableViewsCliente.refresh();
+  	    	  fieldBuscarCliente.setText("");
 
+  	      }
+  	      else{
+  	    	  JOptionPane.showMessageDialog(null, "Cliente No encontrado");
+  	    	  tableViewsCliente.setItems(listadoClientes);
+  	    	  tableViewsCliente.refresh();
+  	    	  fieldBuscarCliente.setText("");
+
+  	      }
     }
 
     @FXML
     void eliminarClienteEvent(ActionEvent event) {
-
+    	if (clienteSeleccionado != null){
+    		mfm.eliminarCliente(clienteSeleccionado.getIdentificacion());
+    		mostrarMensajeAlerta("Cliente eliminado ", "Cliente seleccion ", "El Cliente seleccionado se elimino correctamente ", AlertType.INFORMATION);
+    		listadoClientes.remove(clienteSeleccionado);
+    	}
+    	else{
+    		mostrarMensajeAlerta("Cliente seleccion ", "Cliente seleccion ", "No se ha realizado ninguna seleccion", AlertType.WARNING);
+    	}
     }
+    ///////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
 
-///////////////////////////////////////////////////////////////////
     private MenuPrincipalController menuPrincipalController;
     private Stage stage;
 

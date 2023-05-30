@@ -82,6 +82,19 @@ public class ModelFactoryController {
 		return cliente;
 	}
 
+	public Cliente buscarCedula(String cedula) {
+		Cliente cliente = (concesionario.buscarCliente(cedula));
+		return cliente;
+	}
+
+	public boolean eliminarCliente(String identificacion) {
+		boolean eliminado = concesionario.eliminarCliente(identificacion);
+		return eliminado;
+
+	}
+
+
+
 
 
 }

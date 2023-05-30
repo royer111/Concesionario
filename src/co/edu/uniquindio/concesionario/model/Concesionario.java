@@ -189,6 +189,65 @@ public class Concesionario {
 			}
     }
 
+    public Bus crearBus (String marca, String placa, String modelo, int cantidadCambios, double velocidadMaxima,
+			String cilindraje, EstadoVehiculo estadoVehiculo, TipoCombustible tipoCombustible,
+			TipoTransmision tipoTrasmision, int numPuertas, int numPasajeros, int numBolsasAire){
+    	Bus bus = new Bus( marca,  placa,  modelo,  cantidadCambios,  velocidadMaxima,
+    			 cilindraje,  estadoVehiculo,  tipoCombustible,
+    			 tipoTrasmision,  numPuertas,  numPasajeros,  numBolsasAire);
+    	return  bus;
+    }
+
+    public boolean eliminarVehiculo (String placa){
+    	boolean eliminado = false;
+    	for (Vehiculo vehiculo: listaVehiculos) {
+			if(buscarVehiculo(placa).equals(vehiculo.getPlaca())){
+				listaVehiculos.remove(vehiculo);
+				eliminado = true;
+			}
+		}
+    	return eliminado;
+    }
+
+    public Sedan crearSedan (String marca, String placa, String modelo, int cantidadCambios, double velocidadMaxima,
+			String cilindraje, EstadoVehiculo estadoVehiculo, TipoCombustible tipoCombustible,
+			TipoTransmision tipoTrasmision, int numPuertas, int numPasajeros, int numBolsasAire, boolean aC,
+			boolean camaraReversa, boolean aBS, boolean velocidadCrucero, boolean sensoresColision,
+			boolean sensorTraficoCruzado, boolean asistenteCarril){
+    	Sedan sedan = new Sedan ( marca,  placa,  modelo,  cantidadCambios,  velocidadMaxima,
+    			 cilindraje,  estadoVehiculo,  tipoCombustible,
+    			 tipoTrasmision,  numPuertas,  numPasajeros,  numBolsasAire,  aC,
+    			 camaraReversa,  aBS,  velocidadCrucero,  sensoresColision,
+    			 sensorTraficoCruzado,  asistenteCarril);
+    	return sedan;
+    }
+
+
+
+    public Deportivo crearDeportivo(String marca, String placa, String modelo, int cantidadCambios, double velocidadMaxima,
+			String cilindraje, EstadoVehiculo estadoVehiculo, TipoCombustible tipoCombustible,
+			TipoTransmision tipoTrasmision, int numPuertas, int numPasajeros, int numBolsasAire, int tiempo100Km){
+    	Deportivo deportivo = new Deportivo ( marca,  placa,  modelo,  cantidadCambios,  velocidadMaxima,
+			 cilindraje,  estadoVehiculo,  tipoCombustible,
+			 tipoTrasmision,  numPuertas,  numPasajeros,  numBolsasAire,  tiempo100Km);
+    	return deportivo;
+    }
+
+
+
+    public Camioneta crearCamioneta (String marca, String placa, String modelo, int cantidadCambios, double velocidadMaxima,
+			String cilindraje, EstadoVehiculo estadoVehiculo, TipoCombustible tipoCombustible,
+			TipoTransmision tipoTrasmision, int numPuertas, int numPasajeros, int numBolsasAire, boolean aC,
+			boolean camaraReversa, boolean aBS, boolean velocidadCrucero, boolean sensoresColision,
+			boolean sensorTraficoCruzado, boolean asistenteCarril, boolean is4x4){
+    	Camioneta camioneta = new Camioneta ( marca,  placa,  modelo,  cantidadCambios,  velocidadMaxima,
+			 cilindraje,  estadoVehiculo,  tipoCombustible,
+			 tipoTrasmision,  numPuertas,  numPasajeros,  numBolsasAire,  aC,
+			 camaraReversa,  aBS,  velocidadCrucero,  sensoresColision,
+			 sensorTraficoCruzado,  asistenteCarril,  is4x4);
+    	return camioneta;
+    }
+
 
 
 

@@ -14,6 +14,8 @@ public class MenuPrincipalController {
 
     @FXML
     private Button btnRegistros;
+    @FXML
+    private Button btnRegistroVehiculos;
 
     @FXML
     private Button btnTransacciones;
@@ -54,6 +56,22 @@ public class MenuPrincipalController {
 		}
     }
 
+    @FXML
+    void registroVehiculosEvent(ActionEvent event) {
+    	try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/concesionario/views/RegistroVehiculos.fxml"));
+			Parent root = loader.load();
+	        RegistroVehiculosController registroVehiculosController = loader.getController();
+	        Scene scene = new Scene(root);
+	        Stage stage = new Stage();
+	        stage.setScene(scene);
+	        registroVehiculosController.init(stage, this);
+	        stage.show();
+	        this.stage.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
     @FXML
     void transaccionesEvent(ActionEvent event) {
     	try {

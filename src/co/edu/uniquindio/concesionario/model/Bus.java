@@ -1,19 +1,18 @@
 package co.edu.uniquindio.concesionario.model;
 
-public class Bus extends Vehiculo{
+public class Bus extends Automovil{
     private int numEjes;
     private int numSalidasEmergencia;
     private boolean tieneABS;
 
+
+
 	public Bus(String marca, String placa, String modelo, int cantidadCambios, double velocidadMaxima,
 			String cilindraje, EstadoVehiculo estadoVehiculo, TipoCombustible tipoCombustible,
-			TipoTransmision tipoTrasmision) {
+			TipoTransmision tipoTrasmision, int numPuertas, int numPasajeros, int numBolsasAire) {
 		super(marca, placa, modelo, cantidadCambios, velocidadMaxima, cilindraje, estadoVehiculo, tipoCombustible,
-				tipoTrasmision);
-
-        this.numEjes = numEjes;
-        this.numSalidasEmergencia = numSalidasEmergencia;
-        this.tieneABS = tieneABS;
+				tipoTrasmision, numPuertas, numPasajeros, numBolsasAire);
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getNumEjes() {

@@ -8,10 +8,11 @@
    <center>
       <AnchorPane prefHeight="533.0" prefWidth="726.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnRegistros" layoutX="202.0" layoutY="267.0" mnemonicParsing="false" onAction="#registrosEvent" text="Registros" />
-            <Button fx:id="btnTransacciones" layoutX="202.0" layoutY="304.0" mnemonicParsing="false" onAction="#transaccionesEvent" text="Transacciones" />
-            <Button fx:id="btnCompraVenta" layoutX="202.0" layoutY="341.0" mnemonicParsing="false" onAction="#compraVentaEvent" text="Compra y venta" />
-            <Button fx:id="btnCerrarSesion" layoutX="202.0" layoutY="374.0" mnemonicParsing="false" onAction="#cerrarSesionEvnet" prefHeight="25.0" prefWidth="112.0" text="Cerrar sesion " />
+            <Button fx:id="btnRegistros" layoutX="202.0" layoutY="267.0" mnemonicParsing="false" onAction="#registrosEvent" text="Registros Clientes y empleados" />
+            <Button fx:id="btnTransacciones" layoutX="202.0" layoutY="344.0" mnemonicParsing="false" onAction="#transaccionesEvent" prefHeight="25.0" prefWidth="179.0" text="Transacciones" />
+            <Button fx:id="btnCompraVenta" layoutX="203.0" layoutY="381.0" mnemonicParsing="false" onAction="#compraVentaEvent" prefHeight="25.0" prefWidth="180.0" text="Compra y venta" />
+            <Button fx:id="btnCerrarSesion" layoutX="202.0" layoutY="420.0" mnemonicParsing="false" onAction="#cerrarSesionEvnet" prefHeight="25.0" prefWidth="178.0" text="Cerrar sesion " />
+            <Button fx:id="btnRegistroVehiculos" layoutX="202.0" layoutY="305.0" mnemonicParsing="false" onAction="#registroVehiculosEvent" prefHeight="25.0" prefWidth="180.0" text="Registro vehiculos" />
          </children>
       </AnchorPane>
    </center>
